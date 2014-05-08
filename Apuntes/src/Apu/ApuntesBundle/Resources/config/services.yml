@@ -1,0 +1,7 @@
+parameters:
+#    apu_apuntes.example.class: Apu\ApuntesBundle\Example
+
+services:
+#    apu_apuntes.example:
+#        class: %apu_apuntes.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

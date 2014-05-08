@@ -1,0 +1,15 @@
+apu_apuntes_nuevo:
+    pattern:  /nuevo/
+    defaults: { _controller: ApuApuntesBundle:Default:nuevoApunte }
+
+apu_apuntes_todos:
+    pattern:  /todos/
+    defaults: { _controller: ApuApuntesBundle:Default:verTodosApunte }
+    
+apu_apuntes_descargar:
+    pattern:  /descargar/{id}/{contra}
+    defaults: { _controller: ApuApuntesBundle:Default:descargarApunte, contra: 0 }
+    
+apu_apuntes_borrar:
+    pattern:  /borrar/{id}
+    defaults: { _controller: ApuApuntesBundle:Default:borrarApunte }

@@ -1,0 +1,54 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+	{% for apunte in apuntes %}
+		<div class="col-md-12">
+			<div class="well well-sm">
+				<div class="row">
+					<div class="col-xs-3 col-md-3 text-center">
+						<img src="http://community.kaseya.com/cfs-filesystemfile.ashx/__key/communityserver-components-imagefileviewer/filetypeimages_2E00_/pdf.png_2D00_114x114.png" alt="bootsnipp" class="img-rounded img-responsive" />
+					</div>
+					<div class="col-xs-9 col-md-9 section-box">
+						<div class="row">
+							<div class="col-xs-8 col-md-8 ">
+								<h2>{{ apunte.nombre }}</h2>
+							</div>
+							<div class="col-xs-4 col-md-4">
+								<div class="pull-right" >
+									<h5>User: {{ apunte.user.username }}</h5>
+								</div>
+							</div>
+						</div>
+						<p>{{ apunte.descripcion }}</p>
+						<hr />
+						<div class="row rating-desc">
+							<div class="col-md-6">
+								<span class="glyphicon glyphicon-heart"></span>
+								<span class="glyphicon glyphicon-heart"></span>
+								<span class="glyphicon glyphicon-heart"></span>
+								<span class="glyphicon glyphicon-heart"></span>
+		 						<span class="glyphicon glyphicon-heart"></span>
+								(36)<span class="separator">|</span>
+								<span class="glyphicon glyphicon-comment"></span>(100 Comments)
+							</div>
+							<div class="col-md-6">
+								<div class="pull-right">
+									{% if (is_granted('ROLE_ADMIN') or (app.user and app.user.id == apunte.user.id))%}
+										<a href="{{ path('apu_apuntes_borrar',  { 'id' : apunte.id} )}}">
+											<span class="glyphicon glyphicon-remove"></span> Borrar
+										</a>
+										&nbsp
+										&nbsp
+									{% endif %}
+									<a href="{{ path('apu_apuntes_descargar',  { 'id' : apunte.id} )}}">
+										<span class="glyphicon glyphicon-cloud-download"></span> Descargar
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

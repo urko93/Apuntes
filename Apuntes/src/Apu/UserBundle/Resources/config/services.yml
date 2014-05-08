@@ -1,0 +1,7 @@
+parameters:
+#    apu_user.example.class: Apu\UserBundle\Example
+
+services:
+#    apu_user.example:
+#        class: %apu_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
